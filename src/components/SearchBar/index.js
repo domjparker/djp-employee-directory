@@ -4,13 +4,13 @@ import './style.css';
 function SearchBar(props) {
     return (
       <form className="search">
-        <div className="form-group">
+        <div className="form-group sm-2">
           <input
             value={props.search}
             onChange={props.handleInputChange}
             name="term"
             list="term"
-            type="text"
+            type="search"
             className="form-control"
             placeholder="Search"
             id="term"
