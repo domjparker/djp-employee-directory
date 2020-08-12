@@ -1,23 +1,27 @@
 import React from 'react';
 import './style.css';
 
-function SearchBar(props) {
+function SearchInput(props) {
     return (
       <form className="search">
         <div className="form-group sm-2">
           <input
             value={props.search}
             onChange={props.handleInputChange}
-            name="term"
-            list="term"
-            type="search"
+            name="searchInput"
+            list="names"
+            type="text"
             className="form-control"
             placeholder="Search"
-            id="term"
+            id="search"
           />
+          <datalist id="names"></datalist>
         </div>
       </form>
     );
   }
 
-export default SearchBar;
+export default SearchInput;
+
+
+{/* <input id="search" name="search" value={this.state.search} type="text" onChange={this.handleInputChange} /> */}
