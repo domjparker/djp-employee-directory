@@ -14,7 +14,7 @@ class App extends Component {
     searchInput: "",
     masterUsers: [],
     users: [],
-    sorted: true
+    sorted: 1
   };
 
   // on page load, makeRequest does an API call to get users list.
@@ -45,8 +45,18 @@ class App extends Component {
   }
   // sort incoming list into either alphabetical ascending or descending
   sortFunction = () => {
-    const orderedUser = this.state.users.sort((a, b) => { if (a.name.last < b.name.last) return -1 })
-    this.setState({ users: orderedUser })
+    if (this.state.sorted === 1) {
+      const orderedUser = this.state.users.sort((a, b) => { if (a.name.last < b.name.last) return -1 })
+      this.setState({ users: orderedUser });
+      this.setState({ sorted: -1 })
+      return console.log(this.state.sorted)
+    }
+    else {
+      const orderedUser = this.state.users.sort((a, b) => { if (a.name.last > b.name.last) return -1 })
+      this.setState({ users: orderedUser })
+      this.setState({ sorted: 1})
+      return console.log(this.state.sorted)
+    }
   }
 
 
@@ -54,7 +64,7 @@ class App extends Component {
   renderEmployees = () => {
     // console.log(this.state.users)
     return this.state.users.filter(user => {
-      return user.name.first.toLowerCase().indexOf(this.state.searchInput.toLowerCase())>-1 
+      return user.name.first.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) > -1
     }).map((user) => (
       <TableBody
         key={user.id.value}
