@@ -12,7 +12,6 @@ class App extends Component {
   // 'state' string entered into the searchInput, mastercopy of users list return from api call, user list (copy to be filtered upon search), and sort boolean to change sort direction.
   state = {
     searchInput: "",
-    masterUsers: [],
     users: [],
     sorted: 1
   };
@@ -37,8 +36,7 @@ class App extends Component {
     try {
       let data = await axios.get(URL);
       let apiUsers = data.data.results;
-      // let sortedResults = await results.data.name.last.sort(this.sortFunction)
-      this.setState({ masterUsers: apiUsers, users: apiUsers })
+      this.setState({ users: apiUsers })
     } catch (e) {
       console.log("error:  ", e)
     }
@@ -62,7 +60,6 @@ class App extends Component {
 
   // map over users list it and rendering to the tableBody
   renderEmployees = () => {
-    // console.log(this.state.users)
     return this.state.users.filter(user => {
       return user.name.first.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) > -1
     }).map((user) => (

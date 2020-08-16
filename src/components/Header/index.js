@@ -6,7 +6,7 @@ function Header() {
         <header>
             <row className="mainTitle">
                 <h1>Employee Directory</h1>
-                <p>Click on carrots to filter by heading or use the search box to narrow your results.</p>
+                <p>Click on the ' <i class="fas fa-sort"></i> ' to sort by last name or use the search box to narrow your results.</p>
             </row>
         </header>
     )

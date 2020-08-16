@@ -3,7 +3,7 @@ import './style.css'
 
 function SortButton(props) {
     return (
-        <button id="sortBtn" onClick={props.sortFunction} >Sort</button>
+        <button id="sortBtn" onClick={props.sortFunction} ><i class="fas fa-sort"></i></button>
     )
 }
 
